@@ -38,7 +38,7 @@ class statssearch extends ModuleGraph
     {
         $this->name = 'statssearch';
         $this->tab = 'analytics_stats';
-        $this->version = '1.4.0';
+        $this->version = '2.0.0';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
@@ -54,9 +54,9 @@ class statssearch extends ModuleGraph
 				HAVING occurences > 1
 				ORDER BY occurences DESC';
 
-        $this->displayName = $this->l('Shop search');
-        $this->description = $this->l('Adds a tab to the Stats dashboard, showing which keywords have been searched by your store\'s visitors.');
-        $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
+        $this->displayName = $this->trans('Shop search', array(), 'Modules.Statssearch.Admin');
+        $this->description = $this->trans('Adds a tab to the Stats dashboard, showing which keywords have been searched by your store\'s visitors.', array(), 'Modules.Statssearch.Admin');
+        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
     }
 
     public function install()
@@ -111,9 +111,9 @@ class statssearch extends ModuleGraph
 		<table class="table">
 			<thead>
 				<tr>
-					<th><span class="title_box active">'.$this->l('Keywords').'</span></th>
-					<th><span class="title_box active">'.$this->l('Occurrences').'</span></th>
-					<th><span class="title_box active">'.$this->l('Results').'</span></th>
+					<th><span class="title_box active">'.$this->trans('Keywords', array(), 'Modules.Statssearch.Admin').'</span></th>
+					<th><span class="title_box active">'.$this->trans('Occurrences', array(), 'Modules.Statssearch.Admin').'</span></th>
+					<th><span class="title_box active">'.$this->trans('Results', array(), 'Modules.Statssearch.Admin').'</span></th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -134,10 +134,10 @@ class statssearch extends ModuleGraph
         if (count($result)) {
             $this->html .= '<div>'.$this->engine(array('type' => 'pie')).'</div>
 							<a class="btn btn-default" href="'.Tools::safeOutput($_SERVER['REQUEST_URI']).'&export=1">
-								<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
+								<i class="icon-cloud-upload"></i> '.$this->trans('CSV Export', array(), 'Modules.Statssearch.Admin').'
 							</a>'.$table;
         } else {
-            $this->html .= '<p>'.$this->l('Cannot find any keywords that have been searched for more than once.').'</p>';
+            $this->html .= '<p>'.$this->trans('Cannot find any keywords that have been searched for more than once.', array(), 'Modules.Statssearch.Admin').'</p>';
         }
 
         return $this->html;
@@ -145,7 +145,7 @@ class statssearch extends ModuleGraph
 
     protected function getData($layers)
     {
-        $this->_titles['main'] = $this->l('Top 10 keywords');
+        $this->_titles['main'] = $this->trans('Top 10 keywords', array(), 'Modules.Statssearch.Admin');
         $total_result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query.$this->getDate().$this->query_group_by);
         $total = 0;
         $total2 = 0;
@@ -162,7 +162,7 @@ class statssearch extends ModuleGraph
             $total2 += $row['occurences'];
         }
         if ($total > $total2) {
-            $this->_legend[] = $this->l('Others');
+            $this->_legend[] = $this->trans('Others', array(), 'Modules.Statssearch.Admin');
             $this->_values[] = $total - $total2;
         }
     }
