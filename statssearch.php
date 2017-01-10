@@ -56,7 +56,7 @@ class statssearch extends ModuleGraph
 
         $this->displayName = $this->trans('Shop search', array(), 'Modules.Statssearch.Admin');
         $this->description = $this->trans('Adds a tab to the Stats dashboard, showing which keywords have been searched by your store\'s visitors.', array(), 'Modules.Statssearch.Admin');
-        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
     }
 
     public function install()
