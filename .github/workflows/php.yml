@@ -1,0 +1,19 @@
+name: PHP tests
+on: [push, pull_request]
+jobs:
+
+  header-stamp:
+    name: Header stamp
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v1
+        with:
+          php-version: '7.3'
+          extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+
+      - run: composer install --prefer-dist
+      - run: ./vendor/bin/header-stamp --exclude=vendor,node_modules --dry-run --display-report

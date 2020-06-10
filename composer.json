@@ -12,8 +12,22 @@
   "require": {
     "php": ">=5.4"
   },
+  "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/matks/php-dev-tools"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/matks/header-stamp"
+        }
+    ],
   "config": {
     "preferred-install": "dist"
   },
-  "type": "prestashop-module"
+  "type": "prestashop-module",
+  "require-dev": {
+    "prestashop/header-stamp": "dev-add-dry-run",
+    "prestashop/php-dev-tools": "dev-use-header-stamp-fork"
+  }
 }
