@@ -2,7 +2,7 @@
     "name": "prestashop/statssearch",
     "description": "PrestaShop module statssearch",
     "homepage": "https://github.com/PrestaShop/statssearch",
-    "license": "OSL-3.0",
+    "license": "AFL-3.0",
     "authors": [
         {
             "name": "PrestaShop SA",

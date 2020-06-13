@@ -2,7 +2,7 @@
     "name": "composer/xdebug-handler",
     "description": "Restarts a process without Xdebug.",
     "type": "library",
-    "license": "OSL-3.0",
+    "license": "AFL-3.0",
     "keywords": [
         "xdebug",
         "performance"
