@@ -2,7 +2,7 @@
 
 ## About
 
-Adds a tab to the Stats dashboard, showing which keywords have been searched by your store\'s visitors.
+Enrich your stats, display the pages requested by your visitors that could not be found.
 
 ## Reporting issues
 
