@@ -55,7 +55,7 @@ class statssearch extends ModuleGraph
 				ORDER BY occurences DESC';
 
         $this->displayName = $this->trans('Shop search', array(), 'Modules.Statssearch.Admin');
-        $this->description = $this->trans('Adds a tab to the Stats dashboard, showing which keywords have been searched by your store\'s visitors.', array(), 'Modules.Statssearch.Admin');
+        $this->description = $this->trans('Enrich your stats, add a tab showing what keywords have been searched by your visitors.', array(), 'Modules.Statssearch.Admin');
         $this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
     }
 
