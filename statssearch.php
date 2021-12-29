@@ -38,7 +38,7 @@ class statssearch extends ModuleGraph
     {
         $this->name = 'statssearch';
         $this->tab = 'analytics_stats';
-        $this->version = '2.0.1';
+        $this->version = '2.0.2';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
@@ -61,7 +61,7 @@ class statssearch extends ModuleGraph
 
     public function install()
     {
-        if (!parent::install() || !$this->registerHook('actionSearch') || !$this->registerHook('AdminStatsModules')) {
+        if (!parent::install() || !$this->registerHook('actionSearch') || !$this->registerHook('displayAdminStatsModules')) {
             return false;
         }
 
@@ -96,7 +96,7 @@ class statssearch extends ModuleGraph
         Db::getInstance()->execute($sql);
     }
 
-    public function hookAdminStatsModules()
+    public function hookDisplayAdminStatsModules()
     {
         if (Tools::getValue('export')) {
             $this->csvExport(array('type' => 'pie'));
