@@ -101,7 +101,7 @@ class statssearch extends ModuleGraph
             $this->csvExport(['type' => 'pie']);
         }
 
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query . ModuleGraph::getDateBetween() . $this->query_group_by);
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($this->query . ModuleGraph::getDateBetween() . $this->query_group_by);
         $this->html = '
 		<div class="panel-heading">
 			' . $this->displayName . '
@@ -145,13 +145,13 @@ class statssearch extends ModuleGraph
     protected function getData($layers)
     {
         $this->_titles['main'] = $this->trans('Top 10 keywords', [], 'Modules.Statssearch.Admin');
-        $total_result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate() . $this->query_group_by);
+        $total_result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate() . $this->query_group_by);
         $total = 0;
         $total2 = 0;
         foreach ($total_result as $total_row) {
             $total += $total_row['occurences'];
         }
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate() . $this->query_group_by . ' LIMIT 9');
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate() . $this->query_group_by . ' LIMIT 9');
         foreach ($result as $row) {
             if (!$row['occurences']) {
                 continue;
