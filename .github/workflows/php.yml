@@ -41,12 +41,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: vendor
-          key: php-${{ hashFiles('composer.lock') }}
-
       - name: Install dependencies
         run: composer install
 
@@ -68,20 +62,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v5
-
-      # Add vendor folder in cache to make next builds faster
-      - name: Cache vendor folder
-        uses: actions/cache@v4
-        with:
-          path: vendor
-          key: php-${{ hashFiles('composer.lock') }}
-
-      # Add composer local folder in cache to make next builds faster
-      - name: Cache composer folder
-        uses: actions/cache@v4
-        with:
-          path: ~/.composer/cache
-          key: php-composer-cache
 
       - run: composer install
 
