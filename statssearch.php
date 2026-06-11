@@ -37,7 +37,7 @@ class statssearch extends ModuleGraph
     {
         $this->name = 'statssearch';
         $this->tab = 'administration';
-        $this->version = '2.1.0';
+        $this->version = '3.0.0';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
