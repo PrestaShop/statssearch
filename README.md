@@ -6,7 +6,7 @@ Enrich your stats, add a tab showing what keywords have been searched by your vi
 
 ## Compatibility
 
-PrestaShop: `1.7.1.0` or later
+PrestaShop: `8.2.0` or later
 
 ## How to test
 
